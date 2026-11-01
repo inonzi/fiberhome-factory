@@ -1,5 +1,4 @@
 use std::env;
-use std::fs;
 use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::process;
@@ -27,8 +26,10 @@ fn main() {
         }
     };
 
-    if let Some(warning) = opened.warning {
-        eprintln!("警告: 原厂数据存在问题 {:?}", warning);
+    // 修正：因为原版的 ImportWarning 没有实现 Debug，不能直接 {:?} 打印
+    // 这里我们只打印一个友好的提示，不影响核心处理逻辑
+    if let Some(_warning) = opened.warning {
+        eprintln!("警告: 原厂数据存在问题（如未提交日志或 CRC 损坏），已使用有效副本自动恢复。");
     }
 
     let data = match opened.factory.encode() {
