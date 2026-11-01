@@ -67,7 +67,7 @@ impl Editor {
             import_warning: None,
             pending: None,
             close_allowed: false,
-            language: Language::English,
+            language: Language::Chinese,
         })
     }
     fn message(&mut self, r: Result<String>) {
@@ -469,7 +469,7 @@ fn main() -> eframe::Result {
         ..Default::default()
     };
     eframe::run_native(
-        "FiberHome Factory Editor",
+        "烽火 Factory 编辑器",
         options,
         Box::new(|cc| {
             font::install(&cc.egui_ctx);
