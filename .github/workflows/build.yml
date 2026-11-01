@@ -20,7 +20,7 @@ jobs:
           name: fiberhome-factory-windows-x86_64
           path: |
             target/release/fiberhome-factory.exe
-            target/release/cli.exe
+            target/release/fiberhome-factory-cli.exe
           if-no-files-found: error
   macos:
     runs-on: macos-latest
